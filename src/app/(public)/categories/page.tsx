@@ -28,7 +28,7 @@ export default async function CategoriesPage() {
             <Link
               key={category.slug}
               href={`/categories/${category.slug}`}
-              className="rounded-2xl border border-border bg-surface p-5 transition-colors hover:border-accent"
+              className="rounded-2xl border border-border bg-surface p-5 transition-colors hover:border-accent-strong"
             >
               <h2 className="font-serif text-xl font-semibold">{category.name}</h2>
               {category.description ? (

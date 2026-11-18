@@ -78,7 +78,7 @@ export default async function ArticlePage({
           {article.category ? (
             <Link
               href={`/categories/${article.category.slug}`}
-              className="font-semibold uppercase tracking-wide text-accent hover:underline"
+              className="font-semibold uppercase tracking-wide text-accent-strong hover:underline"
             >
               {article.category.name}
             </Link>
@@ -105,7 +105,7 @@ export default async function ArticlePage({
           <div>
             <Link
               href={`/authors/${article.author.username}`}
-              className="font-medium hover:text-accent"
+              className="font-medium hover:text-accent-strong"
             >
               {article.author.fullName ?? article.author.username}
             </Link>

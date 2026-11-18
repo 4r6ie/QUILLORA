@@ -14,7 +14,7 @@ export function Logo({ className }: { className?: string }) {
     >
       <span
         aria-hidden
-        className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent text-accent-foreground"
+        className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground"
       >
         <svg
           viewBox="0 0 24 24"

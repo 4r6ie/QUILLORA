@@ -31,7 +31,13 @@ export type RateLimitOptions = {
 };
 
 export const rateLimitPresets = {
-  auth: { limit: 10, windowMs: 15 * 60 * 1000 }, // 10 attempts / 15 min
+  /** Per network egress. Generous enough for an office/NAT, still bounded. */
+  auth: { limit: 15, windowMs: 15 * 60 * 1000 }, // 15 attempts / 15 min per IP
+  /**
+   * Per account (hashed email). This is the limit that actually stops
+   * credential stuffing: rotating IPs cannot get around it.
+   */
+  authAccount: { limit: 5, windowMs: 15 * 60 * 1000 }, // 5 attempts / 15 min per account
   comment: { limit: 10, windowMs: 60 * 1000 }, // 10 comments / minute
   search: { limit: 60, windowMs: 60 * 1000 }, // 60 searches / minute
   submission: { limit: 20, windowMs: 60 * 1000 }, // 20 submissions / minute
@@ -92,18 +98,26 @@ export async function rateLimitPreset(
   return rateLimit({ key: `${preset}:${identifier}`, limit, windowMs });
 }
 
-/** Best-effort client identity from request headers (behind a proxy/CDN). */
+/**
+ * Best-effort client identity from request headers (behind a proxy/CDN).
+ *
+ * Order matters. Headers that the platform itself sets are preferred because a
+ * client cannot forge them: Vercel overwrites `x-forwarded-for` at the edge and
+ * emits `x-vercel-forwarded-for`, Cloudflare sets `cf-connecting-ip`. The raw
+ * `x-forwarded-for` fallback is only the first hop, which is the closest thing
+ * to the client address. Hosts that do not sanitise these headers should put a
+ * trusted proxy in front; otherwise the limiter is bypassable by design.
+ */
 export function identifierFromHeaders(headers: Headers): string {
-  const forwarded = headers.get("x-forwarded-for");
-  if (forwarded) {
-    const first = forwarded.split(",")[0]?.trim();
-    if (first) return first;
-  }
-  return (
-    headers.get("x-real-ip") ??
+  const platform =
     headers.get("cf-connecting-ip") ??
-    "unknown"
-  );
+    headers.get("x-vercel-forwarded-for") ??
+    headers.get("x-real-ip");
+  if (platform) return platform.trim();
+
+  const forwarded = headers.get("x-forwarded-for");
+  const first = forwarded?.split(",")[0]?.trim();
+  return first || "unknown";
 }
 
 export function clientIdentifier(request: Request): string {

@@ -3,6 +3,7 @@
 import { useState, type FormEvent } from "react";
 
 import { updateProfile } from "@/features/auth/actions";
+import { isRedirectDigest } from "@/lib/auth/redirects";
 
 export function ProfileForm({
   initial,
@@ -23,10 +24,10 @@ export function ProfileForm({
     setError(null);
     try {
       const result = await updateProfile({ fullName, bio, avatarUrl });
-      if (result.error) setError(result.error);
-      else setMessage("Profile updated.");
+      if ("error" in result) setError(result.error);
+      else setMessage(result.message ?? "Profile updated.");
     } catch (caught) {
-      if ((caught as { digest?: string })?.digest === "NEXT_REDIRECT") throw caught;
+      if (isRedirectDigest(caught)) throw caught;
       setError("Could not save your profile.");
     } finally {
       setPending(false);
@@ -77,7 +78,7 @@ export function ProfileForm({
       <button
         type="submit"
         disabled={pending}
-        className="rounded-full bg-accent px-6 py-2.5 text-sm font-semibold text-accent-foreground disabled:opacity-50"
+        className="rounded-full bg-primary px-6 py-2.5 text-sm font-semibold text-primary-foreground disabled:opacity-50"
       >
         {pending ? "Saving…" : "Save profile"}
       </button>

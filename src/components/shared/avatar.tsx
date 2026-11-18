@@ -12,7 +12,7 @@ export function Avatar({
   return (
     <span
       aria-hidden
-      className="flex shrink-0 items-center justify-center rounded-full bg-accent/15 font-semibold text-accent"
+      className="flex shrink-0 items-center justify-center rounded-full bg-accent/15 font-semibold text-accent-strong"
       style={{ width: size, height: size, fontSize: size * 0.38 }}
     >
       {initials(name, fallback)}

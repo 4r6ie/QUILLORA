@@ -3,6 +3,7 @@
 import { useState } from "react";
 
 import { signOut } from "@/features/auth/actions";
+import { isRedirectDigest } from "@/lib/auth/redirects";
 
 export function SignOutButton() {
   const [pending, setPending] = useState(false);
@@ -15,7 +16,7 @@ export function SignOutButton() {
         try {
           await signOut();
         } catch (error) {
-          if ((error as { digest?: string })?.digest === "NEXT_REDIRECT") return;
+          if (isRedirectDigest(error)) return;
           setPending(false);
         }
       }}

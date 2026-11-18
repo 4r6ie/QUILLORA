@@ -32,7 +32,7 @@ export default async function AuthorsPage() {
             <Link
               key={author.username}
               href={`/authors/${author.username}`}
-              className="flex items-start gap-3 rounded-2xl border border-border bg-surface p-5 transition-colors hover:border-accent"
+              className="flex items-start gap-3 rounded-2xl border border-border bg-surface p-5 transition-colors hover:border-accent-strong"
             >
               <Avatar name={author.fullName ?? author.username} size={48} />
               <div className="min-w-0">

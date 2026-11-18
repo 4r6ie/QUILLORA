@@ -18,7 +18,7 @@ export default function GlobalError({
         <button
           type="button"
           onClick={() => reset()}
-          className="rounded-full bg-accent px-6 py-2 text-sm font-semibold text-accent-foreground"
+          className="rounded-full bg-primary px-6 py-2 text-sm font-semibold text-primary-foreground"
         >
           Reload
         </button>

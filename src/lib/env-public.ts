@@ -6,7 +6,14 @@ import { z } from "zod";
  */
 
 const schema = z.object({
-  NEXT_PUBLIC_SITE_URL: z.string().url().default("http://localhost:3000"),
+  // A trailing slash would turn `${SITE_URL}/auth/callback` into a
+  // `//auth/callback` path that Supabase's redirect allow-list rejects, and
+  // would double up slashes in the sitemap. Normalise once, here.
+  NEXT_PUBLIC_SITE_URL: z
+    .string()
+    .url()
+    .default("http://localhost:3000")
+    .transform((value) => value.replace(/\/+$/, "")),
   NEXT_PUBLIC_APP_NAME: z.string().default("QUILLORA"),
   NEXT_PUBLIC_SUPABASE_URL: z.string().optional().default(""),
   NEXT_PUBLIC_SUPABASE_ANON_KEY: z.string().optional().default(""),

@@ -9,7 +9,7 @@ export function TagPill({ slug, name }: { slug: string; name: string }) {
   return (
     <Link
       href={`/tags/${slug}`}
-      className="rounded-full border border-border px-2.5 py-0.5 text-xs font-medium text-muted transition-colors hover:border-accent hover:text-accent"
+      className="rounded-full border border-border px-2.5 py-0.5 text-xs font-medium text-muted transition-colors hover:border-accent-strong hover:text-accent-strong"
     >
       {name}
     </Link>
@@ -35,7 +35,7 @@ export function ArticleCard({ article }: { article: ArticleCardData }) {
           href={`/articles/${article.slug}`}
           className="flex aspect-[16/9] items-center justify-center bg-gradient-to-br from-accent/20 to-accent/5"
         >
-          <span className="font-serif text-2xl text-accent/40">✦</span>
+          <span aria-hidden className="font-serif text-2xl text-accent/40">✦</span>
         </Link>
       )}
 
@@ -44,7 +44,7 @@ export function ArticleCard({ article }: { article: ArticleCardData }) {
           {article.category ? (
             <Link
               href={`/categories/${article.category.slug}`}
-              className="font-semibold uppercase tracking-wide text-accent hover:underline"
+              className="font-semibold uppercase tracking-wide text-accent-strong hover:underline"
             >
               {article.category.name}
             </Link>
@@ -58,7 +58,7 @@ export function ArticleCard({ article }: { article: ArticleCardData }) {
         </div>
 
         <h3 className="font-serif text-xl font-semibold leading-snug">
-          <Link href={`/articles/${article.slug}`} className="hover:text-accent">
+          <Link href={`/articles/${article.slug}`} className="hover:text-accent-strong">
             {article.title}
           </Link>
         </h3>
@@ -71,7 +71,7 @@ export function ArticleCard({ article }: { article: ArticleCardData }) {
           <Avatar name={article.author.fullName ?? article.author.username} size={28} />
           <Link
             href={`/authors/${article.author.username}`}
-            className="text-sm font-medium hover:text-accent"
+            className="text-sm font-medium hover:text-accent-strong"
           >
             {article.author.fullName ?? article.author.username}
           </Link>

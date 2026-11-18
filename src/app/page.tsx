@@ -35,7 +35,7 @@ export default async function HomePage() {
       {/* Hero */}
       <section className="space-y-6">
         <div className="max-w-2xl space-y-3">
-          <p className="text-sm font-semibold uppercase tracking-widest text-accent">
+          <p className="text-sm font-semibold uppercase tracking-widest text-accent-strong">
             Independent publishing
           </p>
           <h1 className="font-serif text-4xl font-bold leading-tight tracking-tight sm:text-5xl">
@@ -53,10 +53,10 @@ export default async function HomePage() {
             className="group grid gap-6 rounded-3xl border border-border bg-surface p-6 transition-shadow hover:shadow-sm md:grid-cols-2 md:p-10"
           >
             <div className="space-y-4">
-              <span className="rounded-full bg-accent/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-accent">
+              <span className="rounded-full bg-accent/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-accent-strong">
                 Featured
               </span>
-              <h2 className="font-serif text-3xl font-bold leading-tight group-hover:text-accent">
+              <h2 className="font-serif text-3xl font-bold leading-tight group-hover:text-accent-strong">
                 {featured.title}
               </h2>
               <p className="line-clamp-3 text-muted">{featured.excerpt}</p>
@@ -65,7 +65,7 @@ export default async function HomePage() {
               </span>
             </div>
             <div className="hidden items-center justify-center rounded-2xl bg-gradient-to-br from-accent/20 to-accent/5 md:flex">
-              <span className="font-serif text-6xl text-accent/40">✦</span>
+              <span aria-hidden className="font-serif text-6xl text-accent/40">✦</span>
             </div>
           </Link>
         ) : null}
@@ -75,7 +75,7 @@ export default async function HomePage() {
       <section className="space-y-6">
         <div className="flex items-end justify-between gap-4">
           <h2 className="font-serif text-2xl font-bold">Latest stories</h2>
-          <Link href="/explore" className="text-sm font-medium text-accent hover:underline">
+          <Link href="/explore" className="text-sm font-medium text-accent-strong hover:underline">
             Browse everything →
           </Link>
         </div>
@@ -91,7 +91,7 @@ export default async function HomePage() {
               <Link
                 key={category.slug}
                 href={`/categories/${category.slug}`}
-                className="rounded-full border border-border bg-surface px-4 py-1.5 text-sm transition-colors hover:border-accent hover:text-accent"
+                className="rounded-full border border-border bg-surface px-4 py-1.5 text-sm transition-colors hover:border-accent-strong hover:text-accent-strong"
               >
                 {category.name}
                 <span className="ml-1.5 text-xs text-muted">{category.articleCount}</span>
@@ -123,7 +123,7 @@ export default async function HomePage() {
           </p>
           <Link
             href="/register"
-            className="inline-flex rounded-full bg-accent px-6 py-2.5 text-sm font-semibold text-accent-foreground"
+            className="inline-flex rounded-full bg-primary px-6 py-2.5 text-sm font-semibold text-primary-foreground"
           >
             Start writing
           </Link>

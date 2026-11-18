@@ -79,8 +79,10 @@ const nextConfig: NextConfig = {
       },
       {
         // NEVER cache private / authenticated / personal / admin surfaces.
+        // `/auth/*` is included because callback/confirm must never be replayed
+        // from a cache.
         source:
-          "/(dashboard|admin|profile|account|settings|api/auth|api/account|api/admin)/:path*",
+          "/(dashboard|admin|profile|account|settings|auth|api/auth|api/account|api/admin)/:path*",
         headers: [
           {
             key: "Cache-Control",

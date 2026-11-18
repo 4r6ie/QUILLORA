@@ -217,7 +217,7 @@ export function ArticleEditor({
         <button
           type="submit"
           disabled={pending}
-          className="rounded-full bg-accent px-6 py-2.5 text-sm font-semibold text-accent-foreground disabled:opacity-50"
+          className="rounded-full bg-primary px-6 py-2.5 text-sm font-semibold text-primary-foreground disabled:opacity-50"
         >
           {pending ? "Saving…" : initial ? "Save changes" : "Create story"}
         </button>

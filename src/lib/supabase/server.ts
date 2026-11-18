@@ -42,7 +42,17 @@ export async function createSupabaseServerClient() {
 }
 
 /** Server-side auth helpers used by guards. */
+export function isSupabaseConfigured(): boolean {
+  return Boolean(
+    envPublic.NEXT_PUBLIC_SUPABASE_URL && envPublic.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+  );
+}
+
 export async function getSessionUser() {
+  // An unconfigured deploy must still render public and auth pages instead of
+  // crashing inside createServerClient("").
+  if (!isSupabaseConfigured()) return null;
+
   const supabase = await createSupabaseServerClient();
   const {
     data: { user },

@@ -11,7 +11,7 @@ export function EmptyState({
 }) {
   return (
     <div className="rounded-2xl border border-dashed border-border bg-surface p-12 text-center">
-      <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-accent/10 text-accent">
+      <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-accent/10 text-accent-strong">
         ✦
       </div>
       <h2 className="mt-4 font-serif text-xl font-semibold">{title}</h2>

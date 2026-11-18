@@ -38,7 +38,7 @@ export default async function DashboardPage() {
         </div>
         <Link
           href="/dashboard/articles/new"
-          className="rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-accent-foreground"
+          className="rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground"
         >
           New story
         </Link>
@@ -49,7 +49,7 @@ export default async function DashboardPage() {
           title="No stories yet"
           description="Write your first piece and submit it for review."
           action={
-            <Link href="/dashboard/articles/new" className="text-sm font-medium text-accent hover:underline">
+            <Link href="/dashboard/articles/new" className="text-sm font-medium text-accent-strong hover:underline">
               Start writing →
             </Link>
           }
@@ -62,7 +62,7 @@ export default async function DashboardPage() {
                 <div className="min-w-0 flex-1">
                   <Link
                     href={`/dashboard/articles/${article.id}/edit`}
-                    className="font-medium hover:text-accent"
+                    className="font-medium hover:text-accent-strong"
                   >
                     {article.title}
                   </Link>

@@ -2,29 +2,66 @@
 
 /*
  * QUILLORA design tokens.
- * Light, editorial, reading-first. Dark mode via prefers-color-scheme.
+ *
+ * Identity: soft nude #f2e4da · mocha taupe #5e4b42 · rose gold #bb7866.
+ * Every other value below is a mix of those three (plus white/espresso for
+ * elevation), so the palette stays recognisably the same three colours.
+ *
+ * Accessibility rules enforced by these tokens:
+ *  - `--accent` (rose gold) is DECORATIVE. It is 2.8:1 on the nude canvas and
+ *    must never carry body text. Use `--accent-strong` (5.0:1) for text/links.
+ *  - `--border-strong` is the only border colour that meets 3:1 for form
+ *    control outlines; `--border` is for decorative hairlines only.
+ *  - Solid CTA surfaces are `--primary` (mocha) and their label MUST be
+ *    `--primary-foreground` (6.6:1). `--accent-foreground` is only for text
+ *    sitting on solid rose gold, which no longer exists in any surface.
  */
 :root {
-  --background: #faf9f7;
-  --surface: #ffffff;
-  --foreground: #1c1917;
-  --muted: #6b6560;
-  --border: #e7e2dc;
-  --accent: #b45309;
-  --accent-foreground: #ffffff;
-  --ring: #b45309;
+  /* --- Brand ------------------------------------------------------------ */
+  --background: #f2e4da; /* soft nude   */
+  --foreground: #5e4b42; /* mocha taupe */
+  --accent: #bb7866; /* rose gold   */
+
+  /* --- Derived surfaces ------------------------------------------------- */
+  --surface: #fbf4ee;
+  --field: #fdf9f6;
+  --muted: #6f5d54;
+  --border: #ddc9ba;
+  --border-strong: #8b7a70;
+  --accent-strong: #8f4f3e;
+  --accent-foreground: #2a2320;
+  --primary: #5e4b42;
+  --primary-hover: #4c3c34;
+  --primary-foreground: #f2e4da;
+  --ring: #a3604e;
+
+  /* --- Semantic --------------------------------------------------------- */
+  --danger: #9a3b2f;
+  --danger-soft: #f7e3dd;
+  --success: #3f5a33;
+  --success-soft: #eaf0e2;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #121110;
-    --surface: #1b1a18;
-    --foreground: #f5f3f0;
-    --muted: #a8a29b;
-    --border: #2c2a27;
-    --accent: #f59e0b;
-    --accent-foreground: #1b1a18;
-    --ring: #f59e0b;
+    --background: #2a2320;
+    --surface: #332b27;
+    --field: #2f2723;
+    --foreground: #f2e4da;
+    --muted: #c9b3a5;
+    --border: #463b35;
+    --border-strong: #8a7365;
+    --accent: #d29a86;
+    --accent-strong: #e6b7a3;
+    --accent-foreground: #2a2320;
+    --primary: #f2e4da;
+    --primary-hover: #e6d6ca;
+    --primary-foreground: #2a2320;
+    --ring: #d29a86;
+    --danger: #e08a7c;
+    --danger-soft: #3a2622;
+    --success: #a8c096;
+    --success-soft: #2c3427;
   }
 }
 
@@ -34,9 +71,18 @@
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
   --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
   --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
   --color-accent-foreground: var(--accent-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-field: var(--field);
   --color-ring: var(--ring);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
   --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, sans-serif;
   --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia,
@@ -95,7 +141,7 @@ body {
 }
 
 .article-content a {
-  color: var(--accent);
+  color: var(--accent-strong);
   text-decoration: underline;
   text-underline-offset: 3px;
 }

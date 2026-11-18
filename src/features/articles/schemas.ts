@@ -28,10 +28,14 @@ export const commentInputSchema = z.object({
 export type CommentInput = z.infer<typeof commentInputSchema>;
 
 export const profileInputSchema = z.object({
-  fullName: z.string().trim().min(1).max(120).optional(),
+  fullName: z
+    .string()
+    .trim()
+    .max(120)
+    .optional()
+    .transform((value) => (value && value.length > 0 ? value : undefined)),
   bio: z.string().trim().max(500).optional(),
   avatarUrl: z.string().trim().max(500).optional().nullable(),
-  role: z.enum(["reader", "author", "editor", "admin"]).optional(),
 });
 
 export type ProfileInput = z.infer<typeof profileInputSchema>;

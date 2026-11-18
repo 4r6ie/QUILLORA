@@ -108,7 +108,7 @@ export default async function ExplorePage({
             href="/explore"
             className={
               !activeCategory
-                ? "rounded-full bg-accent px-3 py-1 text-xs font-semibold text-accent-foreground"
+                ? "rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground"
                 : "rounded-full border border-border px-3 py-1 text-xs font-medium hover:bg-surface"
             }
           >
@@ -120,7 +120,7 @@ export default async function ExplorePage({
               href={buildHref({ category: category.slug, tag: undefined })}
               className={
                 activeCategory?.slug === category.slug
-                  ? "rounded-full bg-accent px-3 py-1 text-xs font-semibold text-accent-foreground"
+                  ? "rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground"
                   : "rounded-full border border-border px-3 py-1 text-xs font-medium hover:bg-surface"
               }
             >
@@ -135,7 +135,7 @@ export default async function ExplorePage({
               href={buildHref({ tag: tag.slug, category: undefined })}
               className={
                 activeTag?.slug === tag.slug
-                  ? "rounded-full bg-accent px-3 py-1 text-xs font-semibold text-accent-foreground"
+                  ? "rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground"
                   : "rounded-full border border-border px-3 py-1 text-xs font-medium hover:bg-surface"
               }
             >

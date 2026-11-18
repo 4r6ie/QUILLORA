@@ -79,7 +79,7 @@ export function PagePagination({
               aria-current={p === page ? "page" : undefined}
               className={
                 p === page
-                  ? "rounded-md bg-accent px-3 py-1.5 text-sm font-semibold text-accent-foreground"
+                  ? "rounded-md bg-primary px-3 py-1.5 text-sm font-semibold text-primary-foreground"
                   : "rounded-md border border-border px-3 py-1.5 text-sm hover:bg-surface"
               }
             >

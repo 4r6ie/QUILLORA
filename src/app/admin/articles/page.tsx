@@ -42,7 +42,7 @@ export default async function AdminArticlesPage({
             href={value ? `/admin/articles?status=${value}` : "/admin/articles"}
             className={
               (status ?? "") === value
-                ? "rounded-full bg-accent px-3 py-1 text-xs font-semibold text-accent-foreground"
+                ? "rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground"
                 : "rounded-full border border-border px-3 py-1 text-xs font-medium hover:bg-surface"
             }
           >

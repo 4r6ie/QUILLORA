@@ -104,7 +104,7 @@ export function CommentForm({ articleId }: { articleId: string }) {
       <button
         type="submit"
         disabled={submitting || content.trim().length === 0}
-        className="rounded-full bg-accent px-5 py-2 text-sm font-semibold text-accent-foreground transition-opacity disabled:opacity-50"
+        className="rounded-full bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground transition-opacity disabled:opacity-50"
       >
         {submitting ? "Posting…" : "Post comment"}
       </button>
