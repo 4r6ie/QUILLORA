@@ -26,7 +26,7 @@ export default async function RegisterPage() {
       <ul className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-muted">
         <li>Free to start</li>
         <li aria-hidden>·</li>
-        <li>Editorial review before publishing</li>
+        <li>Editorial review</li>
         <li aria-hidden>·</li>
         <li>No credit card</li>
       </ul>

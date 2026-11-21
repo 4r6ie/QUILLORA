@@ -25,10 +25,10 @@ export default async function AdminPage() {
       {stats ? (
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {[
-            { label: "Published", value: stats.published, tone: "text-green-700" },
-            { label: "In review", value: stats.inReview, tone: "text-amber-700" },
+            { label: "Published", value: stats.published, tone: "text-success" },
+            { label: "In review", value: stats.inReview, tone: "text-accent-strong" },
             { label: "Drafts", value: stats.drafts, tone: "text-muted" },
-            { label: "Archived", value: stats.archived, tone: "text-red-700" },
+            { label: "Archived", value: stats.archived, tone: "text-muted" },
             { label: "Authors", value: stats.authors, tone: "text-foreground" },
             { label: "Comments", value: stats.comments, tone: "text-foreground" },
           ].map((card) => (

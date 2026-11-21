@@ -73,7 +73,7 @@ export function CommentForm({ articleId }: { articleId: string }) {
           value={authorName}
           onChange={(event) => setAuthorName(event.target.value)}
           maxLength={80}
-          className="mt-1 w-full rounded-lg border border-border bg-background px-3 py-2 text-sm outline-none focus:border-ring"
+          className="mt-1 w-full rounded-lg border border-border-strong bg-field px-3 py-2 text-sm outline-none focus:border-accent-strong"
         />
       </div>
       <div>
@@ -88,16 +88,16 @@ export function CommentForm({ articleId }: { articleId: string }) {
           minLength={1}
           maxLength={2000}
           rows={4}
-          className="mt-1 w-full rounded-lg border border-border bg-background px-3 py-2 text-sm outline-none focus:border-ring"
+          className="mt-1 w-full rounded-lg border border-border-strong bg-field px-3 py-2 text-sm outline-none focus:border-accent-strong"
         />
       </div>
       {status.kind === "error" ? (
-        <p role="alert" className="text-sm text-red-600">
+        <p role="alert" className="text-sm text-danger">
           {status.message}
         </p>
       ) : null}
       {status.kind === "ok" ? (
-        <p role="status" className="text-sm text-green-700">
+        <p role="status" className="text-sm text-success">
           {status.message}
         </p>
       ) : null}

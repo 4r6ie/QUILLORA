@@ -90,7 +90,7 @@ export function ArticleEditor({
           required
           minLength={3}
           maxLength={200}
-          className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm outline-none focus:border-ring"
+          className="w-full rounded-lg border border-border-strong bg-field px-3 py-2 text-sm outline-none focus:border-accent-strong"
         />
       </div>
 
@@ -103,7 +103,7 @@ export function ArticleEditor({
           value={slug}
           onChange={(event) => setSlug(event.target.value)}
           placeholder={slugify(title) || "my-story"}
-          className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm outline-none focus:border-ring"
+          className="w-full rounded-lg border border-border-strong bg-field px-3 py-2 text-sm outline-none focus:border-accent-strong"
         />
       </div>
 
@@ -117,7 +117,7 @@ export function ArticleEditor({
           onChange={(event) => setExcerpt(event.target.value)}
           rows={2}
           maxLength={400}
-          className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm outline-none focus:border-ring"
+          className="w-full rounded-lg border border-border-strong bg-field px-3 py-2 text-sm outline-none focus:border-accent-strong"
         />
       </div>
 
@@ -131,7 +131,7 @@ export function ArticleEditor({
           onChange={(event) => setContent(event.target.value)}
           required
           rows={14}
-          className="w-full rounded-lg border border-border bg-background px-3 py-2 font-mono text-sm outline-none focus:border-ring"
+          className="w-full rounded-lg border border-border-strong bg-field px-3 py-2 font-mono text-sm outline-none focus:border-accent-strong"
         />
       </div>
 
@@ -145,7 +145,7 @@ export function ArticleEditor({
             value={coverImageUrl}
             onChange={(event) => setCoverImageUrl(event.target.value)}
             placeholder="articles/cover.jpg"
-            className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm outline-none focus:border-ring"
+            className="w-full rounded-lg border border-border-strong bg-field px-3 py-2 text-sm outline-none focus:border-accent-strong"
           />
           <p className="text-xs text-muted">
             Stored in Supabase Storage, served through next/image.
@@ -160,7 +160,7 @@ export function ArticleEditor({
             id="category"
             value={categoryId}
             onChange={(event) => setCategoryId(event.target.value)}
-            className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm outline-none focus:border-ring"
+            className="w-full rounded-lg border border-border-strong bg-field px-3 py-2 text-sm outline-none focus:border-accent-strong"
           >
             <option value="">Uncategorized</option>
             {categories.map((category) => (
@@ -181,7 +181,7 @@ export function ArticleEditor({
           value={tags}
           onChange={(event) => setTags(event.target.value)}
           placeholder="engineering, performance"
-          className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm outline-none focus:border-ring"
+          className="w-full rounded-lg border border-border-strong bg-field px-3 py-2 text-sm outline-none focus:border-accent-strong"
         />
       </div>
 
@@ -193,7 +193,7 @@ export function ArticleEditor({
           id="status"
           value={status}
           onChange={(event) => setStatus(event.target.value as typeof status)}
-          className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm outline-none focus:border-ring"
+          className="w-full rounded-lg border border-border-strong bg-field px-3 py-2 text-sm outline-none focus:border-accent-strong"
         >
           <option value="draft">Draft</option>
           <option value="in_review">Submit for review</option>
@@ -208,7 +208,7 @@ export function ArticleEditor({
       </div>
 
       {error ? (
-        <p role="alert" className="text-sm text-red-600">
+        <p role="alert" className="text-sm text-danger">
           {error}
         </p>
       ) : null}

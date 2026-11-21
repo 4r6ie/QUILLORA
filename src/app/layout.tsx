@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 import { envPublic } from "@/lib/env-public";
@@ -19,6 +19,14 @@ export const metadata: Metadata = {
     url: envPublic.NEXT_PUBLIC_SITE_URL,
   },
   robots: { index: true, follow: true },
+};
+
+/** Mobile browser chrome follows the palette instead of defaulting to white. */
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f2e4da" },
+    { media: "(prefers-color-scheme: dark)", color: "#2a2320" },
+  ],
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

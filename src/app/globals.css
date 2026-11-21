@@ -35,11 +35,19 @@
   --primary-foreground: #f2e4da;
   --ring: #a3604e;
 
-  /* --- Semantic --------------------------------------------------------- */
-  --danger: #9a3b2f;
-  --danger-soft: #f7e3dd;
-  --success: #3f5a33;
-  --success-soft: #eaf0e2;
+  /* --- Semantic ---------------------------------------------------------
+   * Strictly derived from the three brand colours — no green and no stock
+   * red ever enters the system:
+   *   danger  = rose gold driven down toward espresso  (#853425, 6.7:1)
+   *   danger-soft = nude warmed with 18% rose gold (visible as a panel tint)
+   *   success = mocha taupe itself (6.5:1); "archived" fades to muted instead
+   *             of turning red, because archiving is not an error.
+   *   success-soft = nude warmed with 12% mocha taupe
+   */
+  --danger: #853425;
+  --danger-soft: #e8d1c5;
+  --success: #5e4b42;
+  --success-soft: #e0d2c8;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -60,8 +68,8 @@
     --ring: #d29a86;
     --danger: #e08a7c;
     --danger-soft: #3a2622;
-    --success: #a8c096;
-    --success-soft: #2c3427;
+    --success: #dcc9b9;
+    --success-soft: #3a322c;
   }
 }
 

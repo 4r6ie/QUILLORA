@@ -33,7 +33,7 @@ export function ModerationActions({ articleId }: { articleId: string }) {
         type="button"
         disabled={pending}
         onClick={() => run(() => approveArticle(articleId))}
-        className="rounded-full bg-green-700 px-3 py-1.5 text-xs font-semibold text-white disabled:opacity-50"
+        className="rounded-full bg-primary px-3 py-1.5 text-xs font-semibold text-primary-foreground transition-colors hover:bg-[var(--primary-hover)] disabled:opacity-50"
       >
         Approve
       </button>
@@ -53,11 +53,11 @@ export function ModerationActions({ articleId }: { articleId: string }) {
             void run(() => deleteArticle(articleId));
           }
         }}
-        className="rounded-full border border-red-300 px-3 py-1.5 text-xs font-medium text-red-700 hover:bg-red-50 disabled:opacity-50"
+        className="rounded-full border border-danger/30 px-3 py-1.5 text-xs font-medium text-danger hover:bg-danger-soft disabled:opacity-50"
       >
         Delete
       </button>
-      {error ? <span className="text-xs text-red-600">{error}</span> : null}
+      {error ? <span className="text-xs text-danger">{error}</span> : null}
     </div>
   );
 }

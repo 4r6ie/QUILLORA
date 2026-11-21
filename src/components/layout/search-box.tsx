@@ -10,7 +10,7 @@ export function SearchBox() {
   return (
     <form
       role="search"
-      className="relative"
+      className="relative w-full min-w-0 sm:w-56"
       onSubmit={(event) => {
         event.preventDefault();
         const query = value.trim();
@@ -26,7 +26,7 @@ export function SearchBox() {
         value={value}
         onChange={(event) => setValue(event.target.value)}
         placeholder="Search articles…"
-        className="w-40 rounded-full border border-border bg-surface px-3 py-1.5 text-sm outline-none transition-colors placeholder:text-muted focus:border-ring sm:w-56"
+        className="w-full rounded-full border border-border bg-surface px-3 py-1.5 text-sm outline-none transition-colors placeholder:text-muted focus:border-accent-strong"
       />
       <button
         type="submit"

@@ -26,7 +26,7 @@ export function SiteHeader() {
             </Link>
           ))}
         </nav>
-        <div className="ml-auto flex items-center gap-3">
+        <div className="ml-auto flex min-w-0 flex-1 items-center justify-end gap-3 sm:flex-none">
           <SearchBox />
           <Link
             href="/dashboard"

@@ -8,9 +8,9 @@ export const fetchCache = "force-no-store";
 
 const statusStyles: Record<string, string> = {
   draft: "bg-border text-foreground",
-  in_review: "bg-amber-500/15 text-amber-700",
-  published: "bg-green-600/15 text-green-700",
-  archived: "bg-red-500/10 text-red-700",
+  in_review: "bg-accent/15 text-accent-strong",
+  published: "bg-primary text-primary-foreground",
+  archived: "bg-muted/10 text-muted",
 };
 
 export default async function AdminArticlesPage({
